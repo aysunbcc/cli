@@ -142,12 +142,12 @@ func topologyCommand(
 
 			for _, tier := range results {
 				if tiered {
-					if err := writer.Write(tier); err != nil {
+					if err := writer.WriteOne(tier); err != nil {
 						return err
 					}
 				} else {
 					for _, module := range tier {
-						if err := writer.Write(module); err != nil {
+						if err := writer.WriteOne(module); err != nil {
 							return err
 						}
 					}

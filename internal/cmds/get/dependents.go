@@ -34,7 +34,7 @@ func DependentsCommand(
 			}
 
 			for _, dependent := range response.Dependents {
-				_ = writer.Write(dependent)
+				_ = writer.WriteOne(dependent)
 			}
 
 			return nil

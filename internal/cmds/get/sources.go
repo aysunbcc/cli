@@ -36,7 +36,7 @@ func SourcesCommand(
 				}
 
 				for _, source := range response.Sources {
-					_ = writer.Write(source)
+					_ = writer.WriteOne(source)
 				}
 
 				return nil
@@ -55,8 +55,12 @@ func SourcesCommand(
 					return err
 				}
 
+
+				sources := response.Sources
+				_ = writer.WriteTable(sources)
+
 				for _, source := range response.Sources {
-					_ = writer.Write(source)
+					_ = writer.WriteOne(source)
 				}
 
 				if len(response.Sources) < pageSize {

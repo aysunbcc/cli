@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/depscloud/api v0.1.11
 	github.com/gogo/protobuf v1.3.1
+	github.com/olekukonko/tablewriter v0.0.4
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/pflag v1.0.5 // indirect

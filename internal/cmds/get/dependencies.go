@@ -33,7 +33,7 @@ func DependenciesCommand(
 			}
 
 			for _, dependency := range response.Dependencies {
-				_ = writer.Write(dependency)
+				_ = writer.WriteOne(dependency)
 			}
 
 			return nil

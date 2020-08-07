@@ -34,7 +34,7 @@ func ModulesCommand(
 				}
 
 				for _, module := range response.Modules {
-					_ = writer.Write(module)
+					_ = writer.WriteOne(module)
 				}
 
 				return nil
@@ -52,7 +52,7 @@ func ModulesCommand(
 				}
 
 				for _, module := range response.Modules {
-					_ = writer.Write(module)
+					_ = writer.WriteOne(module)
 				}
 
 				if len(response.Modules) < pageSize {

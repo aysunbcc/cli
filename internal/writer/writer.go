@@ -7,15 +7,25 @@ import (
 )
 
 type Writer interface {
-	Write(data interface{}) error
+	WriteOne(data interface{}) error
+	WriteTable(data interface{}) error
 }
 
 type jsonWriter struct {
 	encoder *json.Encoder
 }
 
-func (w *jsonWriter) Write(data interface{}) error {
+func (w *jsonWriter) WriteOne(data interface{}) error {
 	return w.encoder.Encode(data)
+}
+
+func (w *jsonWriter) WriteTable(data interface{}) error {
+	var err error
+
+	for dataRow := range data.([]*interface{}) {
+		err = w.WriteOne(dataRow)
+	}
+	return err
 }
 
 func JSONWriter(writer io.Writer) Writer {
